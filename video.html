@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+        <title>동영상검색</title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f6642672b17ab5702ad7ec92cbc0ed4f"></script>
+        <style>
+            #list img{width: 50px;height: 70px;}
+            #list{margin-top: 10px; margin-bottom: 10px;}
+            #list{padding-left: 10px;}
+            #sub1{padding-top:25px; text-align: center;border: 2px solid #0033CC;background: rgb(253, 249, 228);border-radius: 50px;}
+            #title{font-family: "MS Sans Serif"; font-size: 25px;color:#FFBA46;text-align: center;}
+            #authors{font-family: "MS Sans Serif"; font-size: 20px;color:#748BFF;text-align: center;}
+            #contents{padding:auto;padding-left: 70px;padding-right: 70px;color:#ff7b79;text-align: center;}
+            #map{position: absolute;margin: 0px auto;width:100%;height:500px; border: 1px solid black;}
+            a{color: black;}
+            img{width:250px; height:250px;}
+ </style>
+    </head>
+    <body>
+        <!--동영상목록페이지-->
+        <div data-role="page" id="main"class="gallery-page">
+            <div data-role="header" data-theme="b"><a href="index.html" target="_self" data-icon="home" data-iconpos="notext">Home</a><h2>동영상검색</h2></div>
+            <div data-role="content">
+                <input type="text" id="txtQuery" value="AOA"/>
+                <ul data-role="listview" id="list"></ul>
+                <script id="temp" type="text/x-handlebars-template">
+                {{#each documents}}
+                <li>
+                <a href="{{url}}"><img src="{{thumbnail}}"/>{{{title}}}<br><br>{{url}}</a>
+                </li>
+                {{/each}}
+                </script>
+                <input type="button" value="More" id="btnMore"/>
+            </div>
+            <div data-role="footer" data-theme="b" ><h2>인천일보 아카데미 이민규</h2></div>
+        </div>
+         <!--동영상정보페이지-->
+         <div data-role="page" id="sub">
+            <div data-role="header" data-theme="b"><a href="index.html" target="_self" data-icon="home" data-iconpos="notext">Home</a>
+                <h2>동영상정보</h2>
+                <a href="#main" data-icon="back" data-iconpos="notext">Back</a></div>
+            <div data-role="content">
+                <h1 id="title"></h1>
+                <!--<iframe src="url" allow="autoplay, fullscreen, encrypted-media" allowfullscreen="" class="player_frame" style="width: 100%; height: 100%; border: 0px;"></iframe>-->
+                <div id="phone"></div>
+                </iframe>
+            </div>
+            <div data-role="footer" data-theme="b" ><h2>인천일보 아카데미 이민규</h2></div>
+        </div>
+       
+    </body>
+    <script>
+        var url="https://dapi.kakao.com/v2/search/vclip";
+    </script>
+    <script src="script.js"></script>
+</html>

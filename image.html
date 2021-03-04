@@ -1,0 +1,64 @@
+<html>
+    <head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <title>이미지검색</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=296843c37a5753ce7961fe40ba389811"></script>
+    <style>
+        #list img{width:50; height:70;}
+        #list {margin-top:10px; margin-bottom: 10px;}
+        #list li{padding:10px;}
+    </style>
+    </head>
+    <body>
+         <!----이미지목록-->
+         <div data-role="page" id="main">
+            <div data-role="header" data-theme="b" data-position="fixed">
+                <a href="index.html" target="_self" data-icon="home" data-iconpos="notext">Home</a>
+                <h2>이미지검색</h2>
+            </div>
+            <div data-role="content" >
+                <input type="text" id="txtQuery" value="설현"/>
+
+                <ul data-role="listview" id="list"></ul>
+                <script id="temp" type="text/x-handlebars-template">
+                    {{#each documents}}
+                    <div>
+                          <a href="{{image_url}}"><img src="{{thumbnail_url}}"/></a>
+                     </div>
+                    {{/each}}
+                    </script>
+                    <input type="button"  value="More" id="btnMore"/>
+            </div>
+            <div data-role="footer" data-theme="b" data-position="fixed">
+                <h2>인천일보 아카데미 이민규</h2>
+            </div>
+        </div>
+         <!-----이미지정보페이지-->
+         <div data-role="page" id="sub">
+            <div data-role="header" data-theme="b">
+                <a href="index.html" target="_self" data-icon="home" data-iconpos="notext">Home</a>
+                <h2>지역검색</h2>
+                <a href="#main" data-icon="back" data-iconpos="notext">Back</a>
+            </div>
+            <div data-role="content" >
+          <div>
+             
+            </div>
+            <div data-role="footer" data-theme="b" data-position="fixed">
+                <h2>인천일보 아카데미 이민규</h2>
+            </div>
+        </div>
+   
+    </body>
+    <script>
+        var url="https://dapi.kakao.com/v2/search/image";
+        $("#list").on("click", "a", function(){
+         });
+    </script>
+    <script src="script.js"></script>
+    </body>
+</html>
